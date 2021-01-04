@@ -539,6 +539,17 @@
             <param name="registro"></param>
             <returns></returns>
         </member>
+        <member name="M:apiMDSF.Controllers.RegistroController.UpdateCoordByNameOfComCalleNum(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Actualiza coordenadas x, y, por comuna calle y número.
+            </summary>
+            <param name="comuna"></param>
+            <param name="calle"></param>
+            <param name="numero"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
         <member name="P:apiMDSF.Models.Registro.Addnum">
             <summary>
             Número de la propiedad

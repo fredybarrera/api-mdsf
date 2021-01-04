@@ -46,5 +46,10 @@ namespace apiMDSF.Models
         {
             return con.InsertaRegistro(registro);
         }
+
+        public object UpdateCoordByNameOfComCalleNum(string comuna, string calle, string numero, string x, string y)
+        {
+            return con.UpdateCoordByNameOfComCalleNum(comuna, calle, numero, x, y);
+        }
     }
 }

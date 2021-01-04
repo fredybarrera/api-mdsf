@@ -36,5 +36,22 @@ namespace apiMDSF.Controllers
          
         }
 
+        /// <summary>
+        /// Actualiza coordenadas x, y, por comuna calle y número.
+        /// </summary>
+        /// <param name="comuna"></param>
+        /// <param name="calle"></param>
+        /// <param name="numero"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public IHttpActionResult UpdateCoordByNameOfComCalleNum(string comuna, string calle, string numero, string x, string y)
+        {
+            ApiMDSFModel model = new ApiMDSFModel();
+            return Ok(model.UpdateCoordByNameOfComCalleNum(comuna, calle, numero, x, y));
+
+        }
+
     }
 }

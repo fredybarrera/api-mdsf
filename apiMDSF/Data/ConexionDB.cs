@@ -277,5 +277,32 @@ namespace apiMDSF.Data
                 return JsonConvert.SerializeObject(ex.Message);
             }
         }
+
+
+        public object UpdateCoordByNameOfComCalleNum(string comuna, string calle, string numero, string x, string y)
+        {
+            string JSONresult;
+            try
+            {
+
+                String query = "update public.banco_direcciones set displayx_d=@Displayx_d, displayy_d=@Displayy_d where t_com_nom=@T_com_nom and stname=@Stname and addnum=@Addnum";
+                conn.Open();
+                NpgsqlCommand comand = new NpgsqlCommand(query, conn);
+                comand.Parameters.AddWithValue("@T_com_nom", comuna);//lmunic
+                comand.Parameters.AddWithValue("@Stname", calle);//stname
+                comand.Parameters.AddWithValue("@Addnum", numero);//addnum
+                comand.Parameters.AddWithValue("@Displayx_d", x);//x
+                comand.Parameters.AddWithValue("@Displayy_d", y);//y
+
+                JSONresult = JsonConvert.SerializeObject((comand.ExecuteNonQuery() == 1 ? "Registro actualizado correctamente" : "No se ha podido actualizar el registro"));
+                conn.Close();
+                return JSONresult;
+
+            }
+            catch (Exception ex)
+            {
+                return JsonConvert.SerializeObject(ex.Message);
+            }
+        }
     }
 }
